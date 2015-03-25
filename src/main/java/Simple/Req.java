@@ -16,15 +16,15 @@ public class Req {
 		Scanner scanner = new Scanner(System.in);
 		
 		Context context = ZMQ.context(1);
-		Socket socket = context.socket(ZMQ.REQ);
+		Socket socket = context.socket(ZMQ.PUSH);
 		socket.connect(TCP_LOCALHOST_2222);
 		
 		while (!msg_to_server.equals("exit")) {
 			msg_to_server = scanner.next();
 			socket.send(msg_to_server);
 			
-			msg_from_server  = socket.recvStr();
-			System.out.println(msg_from_server );
+			//msg_from_server  = socket.recvStr();
+			//System.out.println(msg_from_server );
 		}
 		
 		scanner.close();

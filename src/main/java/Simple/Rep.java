@@ -13,16 +13,16 @@ public class Rep {
 		System.out.println("Server start!");
 
 		Context context = ZMQ.context(1);
-		Socket socket = context.socket(ZMQ.REP);
+		Socket socket = context.socket(ZMQ.PULL);
 		socket.bind(TCP_2222);
 
 		while (!Thread.currentThread().isInterrupted()) {
 			msg = socket.recvStr();
 			System.out.println(msg);
 
-			Thread.sleep(1000);
+			//Thread.sleep(1000);
 
-			socket.send("Recv: " + msg);
+			//socket.send("Recv: " + msg);
 		}
 		
 		socket.close();

@@ -6,6 +6,7 @@ import org.zeromq.ZMQ.Socket;
 public class Srv {
 
 	public static void main(final String[] args) {
+		System.out.println("Server starting...");
 		ZMQ.Context context = ZMQ.context(1);
 		Socket pub = context.socket(ZMQ.PUB);
 		Socket pull = context.socket(ZMQ.PULL);
