@@ -5,6 +5,7 @@ import org.zeromq.ZMQ.Context;
 import org.zeromq.ZMQ.Socket;
 
 public class Rep {
+
 	private static final String TCP_2222 = "tcp://*:2222";
 	private static String msg = new String();
 
@@ -23,7 +24,7 @@ public class Rep {
 
 			socket.send("Recv: " + msg);
 		}
-
+		
 		socket.close();
 		context.term();
 	}
